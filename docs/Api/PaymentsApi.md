@@ -78,7 +78,7 @@ try {
 ## `listPayments()`
 
 ```php
-listPayments($order_id, $status, $payment_method, $amount_from, $amount_to, $created_from, $created_to, $sort, $sort_direction, $cursor, $limit): \OPayments\SDK\Model\PaymentList
+listPayments($order_id, $status, $payment_method, $amount_from, $amount_to, $created_from, $created_to, $completed_from, $completed_to, $failure_code, $search, $sort, $sort_direction, $cursor, $limit): \OPayments\SDK\Model\PaymentList
 ```
 
 Найти платежи
@@ -116,13 +116,17 @@ $amount_from = 56; // int | Не больше amountTo, если он перед
 $amount_to = 56; // int | Не меньше amountFrom, если он передан.
 $created_from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Не позже createdTo, если он передан.
 $created_to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Не раньше createdFrom, если он передан.
+$completed_from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Не позже completedTo, если он передан.
+$completed_to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Не раньше completedFrom, если он передан.
+$failure_code = 'failure_code_example'; // string | Нормализованный код причины платежа.
+$search = 'search_example'; // string | Поиск по paymentId, orderId и описанию платежа.
 $sort = 'createdAt'; // string
 $sort_direction = 'desc'; // string
-$cursor = 'cursor_example'; // string | Непрозрачный курсор из предыдущего ответа. Используйте только с теми же фильтрами и сортировкой.
+$cursor = 'cursor_example'; // string | Непрозрачный курсор из предыдущего ответа. Используйте только с теми же фильтрами и сортировкой. При одинаковом sort key API использует стабильный вторичный ID.
 $limit = 20; // int | Количество записей в ответе.
 
 try {
-    $result = $apiInstance->listPayments($order_id, $status, $payment_method, $amount_from, $amount_to, $created_from, $created_to, $sort, $sort_direction, $cursor, $limit);
+    $result = $apiInstance->listPayments($order_id, $status, $payment_method, $amount_from, $amount_to, $created_from, $created_to, $completed_from, $completed_to, $failure_code, $search, $sort, $sort_direction, $cursor, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentsApi->listPayments: ', $e->getMessage(), PHP_EOL;
@@ -140,9 +144,13 @@ try {
 | **amount_to** | **int**| Не меньше amountFrom, если он передан. | [optional] |
 | **created_from** | **\DateTime**| Не позже createdTo, если он передан. | [optional] |
 | **created_to** | **\DateTime**| Не раньше createdFrom, если он передан. | [optional] |
+| **completed_from** | **\DateTime**| Не позже completedTo, если он передан. | [optional] |
+| **completed_to** | **\DateTime**| Не раньше completedFrom, если он передан. | [optional] |
+| **failure_code** | **string**| Нормализованный код причины платежа. | [optional] |
+| **search** | **string**| Поиск по paymentId, orderId и описанию платежа. | [optional] |
 | **sort** | **string**|  | [optional] [default to &#39;createdAt&#39;] |
 | **sort_direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
-| **cursor** | **string**| Непрозрачный курсор из предыдущего ответа. Используйте только с теми же фильтрами и сортировкой. | [optional] |
+| **cursor** | **string**| Непрозрачный курсор из предыдущего ответа. Используйте только с теми же фильтрами и сортировкой. При одинаковом sort key API использует стабильный вторичный ID. | [optional] |
 | **limit** | **int**| Количество записей в ответе. | [optional] [default to 20] |
 
 ### Return type

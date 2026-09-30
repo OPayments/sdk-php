@@ -13,7 +13,7 @@ All URIs are relative to https://api.opayments.io/api/v1, except if the operatio
 ## `createSbpPayment()`
 
 ```php
-createSbpPayment($create_sbp_payment_request): \OPayments\SDK\Model\Payment
+createSbpPayment($create_sbp_payment_request, $idempotency_key): \OPayments\SDK\Model\Payment
 ```
 
 Создать платёж по СБП
@@ -43,9 +43,10 @@ $apiInstance = new OPayments\SDK\Api\PaymentApi(
     $config
 );
 $create_sbp_payment_request = new \OPayments\SDK\Model\CreateSbpPaymentRequest(); // \OPayments\SDK\Model\CreateSbpPaymentRequest
+$idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->createSbpPayment($create_sbp_payment_request);
+    $result = $apiInstance->createSbpPayment($create_sbp_payment_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentApi->createSbpPayment: ', $e->getMessage(), PHP_EOL;
@@ -57,6 +58,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **create_sbp_payment_request** | [**\OPayments\SDK\Model\CreateSbpPaymentRequest**](../Model/CreateSbpPaymentRequest.md)|  | |
+| **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
@@ -78,7 +80,7 @@ try {
 ## `createTpayPayment()`
 
 ```php
-createTpayPayment($create_tpay_payment_request): \OPayments\SDK\Model\Payment
+createTpayPayment($create_tpay_payment_request, $idempotency_key): \OPayments\SDK\Model\Payment
 ```
 
 Создать платёж через T-Pay
@@ -108,9 +110,10 @@ $apiInstance = new OPayments\SDK\Api\PaymentApi(
     $config
 );
 $create_tpay_payment_request = new \OPayments\SDK\Model\CreateTpayPaymentRequest(); // \OPayments\SDK\Model\CreateTpayPaymentRequest
+$idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->createTpayPayment($create_tpay_payment_request);
+    $result = $apiInstance->createTpayPayment($create_tpay_payment_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentApi->createTpayPayment: ', $e->getMessage(), PHP_EOL;
@@ -122,6 +125,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **create_tpay_payment_request** | [**\OPayments\SDK\Model\CreateTpayPaymentRequest**](../Model/CreateTpayPaymentRequest.md)|  | |
+| **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 

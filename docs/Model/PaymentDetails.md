@@ -12,12 +12,12 @@ Name | Type | Description | Notes
 **payment_method** | **string** |  |
 **status** | **string** |  |
 **payment_url** | **string** | Адрес оплаты для платежа в статусе pending. | [optional]
-**expires_at** | **\DateTime** |  | [optional]
 **failure_code** | **string** |  | [optional]
-**failure_message** | **string** |  | [optional]
+**failure_message** | **string** | Нормализованное сообщение, безопасное для показа мерчанту; никогда не содержит сырой ответ провайдера, credentials или данные карты. | [optional]
+**refund_summary** | [**\OPayments\SDK\Model\RefundSummary**](RefundSummary.md) |  | [optional]
 **completed_at** | **\DateTime** |  | [optional]
 **created_at** | **\DateTime** |  |
 **updated_at** | **\DateTime** |  |
-**refund** | [**\OPayments\SDK\Model\Refund**](Refund.md) |  | [optional]
+**refunds** | [**\OPayments\SDK\Model\Refund[]**](Refund.md) | Устарело, так как список неограничен. Используйте GET /payments/{paymentId}/refunds. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

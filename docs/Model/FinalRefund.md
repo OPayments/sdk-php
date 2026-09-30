@@ -4,10 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**refund_id** | **string** |  |
 **payment_id** | **string** |  |
 **amount** | **int** | Сумма в копейках. |
 **currency** | **string** |  |
 **status** | **string** |  |
+**reason_code** | [**\OPayments\SDK\Model\RefundReason**](RefundReason.md) |  | [optional]
+**reason_comment** | **string** |  | [optional]
 **reason** | **string** |  | [optional]
 **failure_code** | **string** |  | [optional]
 **failure_message** | **string** |  | [optional]

@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **payment_method** | **string** |  |
 **status** | **string** |  |
 **payment_url** | **string** |  |
-**expires_at** | **\DateTime** |  |
 **failure_code** | **string** |  | [optional]
-**failure_message** | **string** |  | [optional]
+**failure_message** | **string** | Нормализованное сообщение, безопасное для показа мерчанту; никогда не содержит сырой ответ провайдера, credentials или данные карты. | [optional]
+**refund_summary** | [**\OPayments\SDK\Model\RefundSummary**](RefundSummary.md) |  | [optional]
 **completed_at** | **\DateTime** |  | [optional]
 **created_at** | **\DateTime** |  |
 **updated_at** | **\DateTime** |  |
